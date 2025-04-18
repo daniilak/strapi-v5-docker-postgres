@@ -21,6 +21,8 @@ services:
       - ./package.json:/opt/app/package.json
       - ./package-lock.json:/opt/app/package-lock.json
       - ./.env:/opt/app/.env
+      - strapi-data:/opt/app/.tmp
+      - strapi-uploads:/opt/app/public/uploads
     depends_on:
       - postgres
 
@@ -38,4 +40,6 @@ services:
       - '5433:5432'
 
 volumes:
-  postgres-data: 
+  postgres-data:
+  strapi-data:
+  strapi-uploads: 
